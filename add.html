@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Your Train Ticket | TicketSetu</title>
+  <meta name="description" content="List your extra or unused confirmed train ticket on TicketSetu. Connect directly with travelers and recover your fare safely.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="TicketSetu Home">
+        <div class="logo-icon-wrapper">
+          <i class="fas fa-train"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Ticket</span><span class="brand-accent">Setu</span>
+          <span class="brand-badge">P2P</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="search.html" class="nav-link">Search Tickets</a>
+        <a href="add.html" class="nav-link active">Add Ticket</a>
+        <a href="about.html" class="nav-link">About</a>
+        <div class="nav-actions">
+          <a href="search.html" class="btn btn-outline btn-sm">
+            <i class="fas fa-search"></i> Find Tickets
+          </a>
+        </div>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Page Header Banner -->
+    <section class="page-header">
+      <div class="container">
+        <h1>List an Unused Train Ticket</h1>
+        <p>Help a fellow traveler find a seat and avoid ticket cancellation charges. Direct peer-to-peer exchange with zero commission.</p>
+      </div>
+    </section>
+
+    <!-- Main Form Section -->
+    <section class="section-padding" style="padding-top: 3rem;">
+      <div class="container">
+        <div class="form-layout-grid">
+          <!-- Left Column: Add Ticket Form -->
+          <div class="form-card">
+            <form id="add-ticket-form" novalidate>
+              
+              <!-- 1. Train Details Section -->
+              <h3 class="form-section-title">
+                <i class="fas fa-train"></i> 1. Train Details
+              </h3>
+              <div class="form-fieldset">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="train-name">Train Name <span class="required">*</span></label>
+                    <input type="text" id="train-name" class="form-control" placeholder="e.g. Vidarbha Express" required>
+                    <span class="invalid-feedback">Please enter the train name.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="train-number">Train Number <span class="required">*</span></label>
+                    <input type="text" id="train-number" class="form-control" placeholder="e.g. 17618" required maxlength="6">
+                    <span class="invalid-feedback">Please enter the 5 or 6 digit train number.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Route & Journey Timings -->
+              <h3 class="form-section-title">
+                <i class="fas fa-route"></i> 2. Route & Timings
+              </h3>
+              <div class="form-fieldset">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="from-station">From Station (Origin) <span class="required">*</span></label>
+                    <input type="text" id="from-station" class="form-control" placeholder="e.g. Pune Jn" required>
+                    <span class="invalid-feedback">Please enter the departure station.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="to-station">To Station (Destination) <span class="required">*</span></label>
+                    <input type="text" id="to-station" class="form-control" placeholder="e.g. Malkapur" required>
+                    <span class="invalid-feedback">Please enter the destination station.</span>
+                  </div>
+                </div>
+
+                <div class="form-row-3">
+                  <div class="form-group">
+                    <label for="ticket-date">Date of Journey <span class="required">*</span></label>
+                    <input type="date" id="ticket-date" class="form-control" required>
+                    <span class="invalid-feedback">Please pick a valid travel date.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="departure-time">Departure Time <span class="required">*</span></label>
+                    <input type="time" id="departure-time" class="form-control" value="19:00" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="arrival-time">Arrival Time <span class="required">*</span></label>
+                    <input type="time" id="arrival-time" class="form-control" value="06:30" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Ticket Class & Fare -->
+              <h3 class="form-section-title">
+                <i class="fas fa-ticket-alt"></i> 3. Ticket Class & Pricing
+              </h3>
+              <div class="form-fieldset">
+                <div class="form-row-3">
+                  <div class="form-group">
+                    <label for="ticket-type">Coach Class <span class="required">*</span></label>
+                    <select id="ticket-type" class="form-control" required>
+                      <option value="Sleeper">Sleeper (SL)</option>
+                      <option value="3AC">3rd AC (3A)</option>
+                      <option value="2AC">2nd AC (2A)</option>
+                      <option value="1AC">1st AC (1A)</option>
+                      <option value="General">Second Sitting / General (2S)</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="seats-count">No. of Tickets <span class="required">*</span></label>
+                    <select id="seats-count" class="form-control" required>
+                      <option value="1">1 Ticket</option>
+                      <option value="2">2 Tickets</option>
+                      <option value="3">3 Tickets</option>
+                      <option value="4">4 Tickets</option>
+                      <option value="5">5 Tickets</option>
+                      <option value="6">6 Tickets</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="ticket-price">Price per Ticket (₹) <span class="required">*</span></label>
+                    <input type="number" id="ticket-price" class="form-control" placeholder="e.g. 350" min="1" step="1" required>
+                    <span class="invalid-feedback">Please enter a valid price in rupees.</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="ticket-notes">Coach & Berth Details / Additional Info (Optional)</label>
+                  <textarea id="ticket-notes" class="form-control" rows="2" placeholder="e.g. Confirmed Lower and Middle berth in Coach S4. Ready for instant digital transfer."></textarea>
+                  <span class="form-hint">Tip: Adding coach details increases buyer trust. Do not share confidential PNR numbers openly.</span>
+                </div>
+              </div>
+
+              <!-- 4. Seller Contact Information -->
+              <h3 class="form-section-title">
+                <i class="fas fa-address-book"></i> 4. Seller Contact Details
+              </h3>
+              <div class="form-fieldset">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="seller-name">Your Full Name <span class="required">*</span></label>
+                    <input type="text" id="seller-name" class="form-control" placeholder="e.g. Rahul Deshmukh" required>
+                    <span class="invalid-feedback">Please provide your name.</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="seller-phone">Mobile Number (10 digits) <span class="required">*</span></label>
+                    <input type="tel" id="seller-phone" class="form-control" placeholder="e.g. 9823012345" maxlength="10" required>
+                    <span class="invalid-feedback">Please enter a valid 10-digit mobile number.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top: 2rem;">
+                <button type="submit" class="btn btn-accent btn-lg" style="width: 100%; font-size: 1.1rem; padding: 1rem;">
+                  <i class="fas fa-check-circle"></i> Publish Ticket Listing
+                </button>
+                <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 0.8rem;">
+                  By listing, you agree to exchange at fair fare values and adhere to Indian Railway guidelines.
+                </p>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- Right Column: Helpful Tips & Safety Guidelines -->
+          <div class="sidebar-guidelines">
+            <div class="guidelines-card">
+              <h3><i class="fas fa-lightbulb" style="color: var(--accent);"></i> Tips for Sellers</h3>
+              
+              <div class="guideline-item">
+                <div class="guideline-icon">
+                  <i class="fas fa-tag"></i>
+                </div>
+                <div class="guideline-text">
+                  <h4>Fair Original Pricing</h4>
+                  <p>Keep ticket price close to or lower than the original fare printed on your IRCTC ticket for quick pickup.</p>
+                </div>
+              </div>
+
+              <div class="guideline-item">
+                <div class="guideline-icon">
+                  <i class="fas fa-lock"></i>
+                </div>
+                <div class="guideline-text">
+                  <h4>Protect Your Privacy</h4>
+                  <p>Never share credit card, OTPs, or full banking passwords. Ticket exchanges require only phone coordination.</p>
+                </div>
+              </div>
+
+              <div class="guideline-item">
+                <div class="guideline-icon">
+                  <i class="fas fa-trash-alt"></i>
+                </div>
+                <div class="guideline-text">
+                  <h4>Delete Once Sold</h4>
+                  <p>Once you find a buyer, delete your listing from the "My Listed Tickets" section below to stop receiving calls.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="guidelines-card" style="background: linear-gradient(135deg, var(--primary-soft) 0%, #ffffff 100%);">
+              <h3><i class="fas fa-shield-alt" style="color: var(--primary);"></i> Fair Exchange Ethos</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
+                TicketSetu is built on community goodwill to prevent seat wastage and help passengers with urgent travel needs. Commercial ticket scalping or black marketing is strictly prohibited.
+              </p>
+              <a href="about.html" class="btn btn-outline-primary btn-sm" style="width: 100%;">
+                <i class="fas fa-info-circle"></i> Read Platform Guidelines
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- My Listed Tickets Section -->
+        <section class="my-tickets-section">
+          <div class="my-tickets-header">
+            <div>
+              <h2><i class="fas fa-user-tag"></i> My Listed Tickets</h2>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">Manage or remove the tickets you have posted on TicketSetu.</p>
+            </div>
+          </div>
+
+          <div class="tickets-grid" id="my-tickets-grid">
+            <!-- Dynamically populated via script.js -->
+          </div>
+
+          <div id="my-tickets-empty" class="empty-state" style="display: none; padding: 2.5rem 1.5rem; margin-top: 1rem;">
+            <div class="empty-state-icon" style="width: 60px; height: 60px; font-size: 1.5rem;">
+              <i class="fas fa-ticket-alt"></i>
+            </div>
+            <h4 style="font-size: 1.15rem; font-weight: 700;">No Tickets Listed Yet</h4>
+            <p style="font-size: 0.875rem; margin-bottom: 0;">Fill out the form above to post your first ticket. It will instantly appear here with delete controls.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: #ffffff;">
+            <div class="logo-icon-wrapper">
+              <i class="fas fa-train"></i>
+            </div>
+            <div class="brand-text">
+              <span style="color: #ffffff;">Ticket</span><span class="brand-accent">Setu</span>
+            </div>
+          </div>
+          <p>
+            An open peer-to-peer bulletin board helping travelers share and find unused confirmed train tickets across India.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <div class="footer-links">
+            <a href="index.html"><i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i> Home</a>
+            <a href="search.html"><i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i> Search Tickets</a>
+            <a href="add.html"><i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i> List Unused Ticket</a>
+            <a href="about.html"><i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i> About & Guidelines</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Popular Routes</h4>
+          <div class="footer-links">
+            <a href="search.html?from=Pune&to=Malkapur"><i class="fas fa-train" style="font-size: 0.75rem;"></i> Pune → Malkapur</a>
+            <a href="search.html?from=Mumbai&to=Pune"><i class="fas fa-train" style="font-size: 0.75rem;"></i> Mumbai → Pune</a>
+            <a href="search.html?from=Nagpur&to=Mumbai"><i class="fas fa-train" style="font-size: 0.75rem;"></i> Nagpur → Mumbai</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Support & Safety</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>Zero fees. Direct exchange between passengers.</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>support@ticketsetu.in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <div>
+          &copy; 2026 TicketSetu. Built for Indian Railway passengers.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="about.html">Safety Tips</a>
+          <a href="about.html#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

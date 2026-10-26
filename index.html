@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TicketSetu | Find & Share Unused Train Tickets Easily</title>
+  <meta name="description" content="India's trusted peer-to-peer train ticket exchange platform. List your unused train tickets or connect directly with confirmed ticket sellers across 100+ routes.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="TicketSetu Home">
+        <div class="logo-icon-wrapper">
+          <i class="fas fa-train"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Ticket</span><span class="brand-accent">Setu</span>
+          <span class="brand-badge">P2P</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="search.html" class="nav-link">Search Tickets</a>
+        <a href="add.html" class="nav-link">Add Ticket</a>
+        <a href="about.html" class="nav-link">About</a>
+        <div class="nav-actions">
+          <a href="add.html" class="btn btn-accent btn-sm">
+            <i class="fas fa-plus-circle"></i> List a Ticket
+          </a>
+        </div>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <!-- Left: Headline & Introduction -->
+        <div class="hero-content">
+          <div class="hero-pill">
+            <span class="pulse-dot"></span>
+            <span>Live Peer-to-Peer Train Ticket Exchange</span>
+          </div>
+          <h1 class="hero-title">
+            Find or Share <span class="highlight">Train Tickets</span> Easily
+          </h1>
+          <p class="hero-subtitle">
+            Stuck with an unused confirmed ticket or urgently searching for a seat? Connect directly with verified fellow travelers across 100+ routes with zero middlemen.
+          </p>
+          <div class="hero-cta-group">
+            <a href="search.html" class="btn btn-accent btn-lg">
+              <i class="fas fa-search"></i> Search Available Seats
+            </a>
+            <a href="add.html" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.08);">
+              <i class="fas fa-ticket-alt"></i> List Your Ticket
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Quick Route Search Widget -->
+        <div class="hero-search-card">
+          <div class="hero-search-header">
+            <h3><i class="fas fa-compass"></i> Quick Ticket Finder</h3>
+            <span class="badge badge-sleeper"><i class="fas fa-bolt"></i> Instant Match</span>
+          </div>
+
+          <form id="hero-search-form" class="hero-search-form">
+            <div class="route-inputs">
+              <div class="form-group-compact">
+                <label><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> From Station</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-location-arrow"></i>
+                  <input type="text" name="from" placeholder="e.g. Pune, Mumbai, Delhi" required autocomplete="off">
+                </div>
+              </div>
+
+              <button type="button" class="swap-btn-floating" id="hero-swap-stations" title="Swap Stations">
+                <i class="fas fa-exchange-alt"></i>
+              </button>
+
+              <div class="form-group-compact">
+                <label><i class="fas fa-map-pin" style="color: var(--accent);"></i> To Station</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-flag-checkered"></i>
+                  <input type="text" name="to" placeholder="e.g. Malkapur, Nagpur, Nashik" required autocomplete="off">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-compact">
+              <label><i class="far fa-calendar-alt"></i> Date of Travel</label>
+              <div class="input-with-icon">
+                <i class="far fa-calendar"></i>
+                <input type="date" name="date" id="hero-date">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; padding: 0.85rem;">
+              <i class="fas fa-search"></i> Check Available Tickets
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animated Stats Counter Section -->
+    <section class="container stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon orange">
+            <i class="fas fa-ticket-alt"></i>
+          </div>
+          <div class="stat-info">
+            <h4 class="stat-number" data-target="1450" data-suffix="+">0</h4>
+            <p>Tickets Listed</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon blue">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <h4 class="stat-number" data-target="3800" data-suffix="+">0</h4>
+            <p>Happy Travelers</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon green">
+            <i class="fas fa-route"></i>
+          </div>
+          <div class="stat-info">
+            <h4 class="stat-number" data-target="180" data-suffix="+">0</h4>
+            <p>Routes Covered</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon purple">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="stat-info">
+            <h4>&lt; 15 mins</h4>
+            <p>Avg Response Time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Simple & Seamless</span>
+          <h2 class="section-title">How TicketSetu Works</h2>
+          <p class="section-description">
+            Connecting train travelers across India in 3 simple steps. No confusing bids, no hefty platform fees.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon-wrap">
+              <i class="fas fa-search-location"></i>
+            </div>
+            <h3>1. Search & Discover</h3>
+            <p>Enter your origin, destination, and travel date. Filter by coach class like Sleeper, 3AC, 2AC or price to spot matching confirmed tickets.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon-wrap">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3>2. Contact Seller</h3>
+            <p>Get in touch directly with the passenger via direct phone call or WhatsApp. Review berth details, timing, and coordinate the exchange smoothly.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon-wrap">
+              <i class="fas fa-train-subway"></i>
+            </div>
+            <h3>3. Travel Hassle-Free</h3>
+            <p>Settle the fair face value directly with the passenger, receive the ticket details, and enjoy your comfortable train journey without waiting lists.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recently Listed Tickets Section -->
+    <section class="section-padding" style="background-color: var(--bg-subtle);">
+      <div class="container">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="section-tag">Fresh Listings</span>
+            <h2 class="section-title" style="margin-bottom: 0;">Featured Tickets Available</h2>
+          </div>
+          <a href="search.html" class="btn btn-outline-primary">
+            View All Listed Tickets <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="tickets-grid" id="recent-tickets-preview">
+          <!-- Dynamically populated via script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose TicketSetu / Trust & Safety -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Why TicketSetu</span>
+          <h2 class="section-title">Built for Indian Railway Commuters</h2>
+          <p class="section-description">
+            We bridge the gap between people whose plans changed and travelers in desperate need of a seat.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card" style="box-shadow: none; border-color: var(--border-color);">
+            <div class="step-icon-wrap" style="background: var(--accent-light); color: var(--accent);">
+              <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <h3>Zero Commission</h3>
+            <p>We do not take a cut from either side. All transactions happen directly between fellow passengers at fair original prices.</p>
+          </div>
+
+          <div class="step-card" style="box-shadow: none; border-color: var(--border-color);">
+            <div class="step-icon-wrap" style="background: var(--primary-soft); color: var(--primary);">
+              <i class="fas fa-shield-halved"></i>
+            </div>
+            <h3>Direct Contact</h3>
+            <p>Direct communication via phone and WhatsApp ensures quick clarification on coach numbers, boarding points, and timing.</p>
+          </div>
+
+          <div class="step-card" style="box-shadow: none; border-color: var(--border-color);">
+            <div class="step-icon-wrap" style="background: var(--success-bg); color: var(--success);">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3>Less Berth Wastage</h3>
+            <p>Every confirmed seat not used is a missed trip for an emergency traveler. TicketSetu ensures optimal seat utilization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section style="background: linear-gradient(135deg, var(--primary) 0%, #0d1642 100%); color: #ffffff; padding: 4.5rem 0; text-align: center;">
+      <div class="container">
+        <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; color: #ffffff;">Have an Unused Train Ticket?</h2>
+        <p style="font-size: 1.1rem; color: #cbd5e1; max-width: 600px; margin: 0 auto 2rem;">
+          Don't let your confirmed ticket go to waste. Help a fellow traveler get home and recover your fare in minutes.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="add.html" class="btn btn-accent btn-lg">
+            <i class="fas fa-plus-circle"></i> List Your Ticket Now
+          </a>
+          <a href="search.html" class="btn btn-outline" style="color: #ffffff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.08);">
+            <i class="fas fa-search"></i> Browse All Routes
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: #ffffff;">
+            <div class="logo-icon-wrapper">
+              <i class="fas fa-train"></i>
+            </div>
+            <div class="brand-text">
+              <span style="color: #ffffff;">Ticket</span><span class="brand-accent">Setu</span>
+            </div>
+          </div>
+          <p>
+            TicketSetu is a community-driven notice board connecting Indian train travelers with extra or unused tickets to commuters seeking confirmed seats.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <div class="footer-links">
+            <a href="index.html"><i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i> Home</a>
+            <a href="search.html"><i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i> Search Tickets</a>
+            <a href="add.html"><i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i> List Unused Ticket</a>
+            <a href="about.html"><i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i> About & Guidelines</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Popular Routes</h4>
+          <div class="footer-links">
+            <a href="search.html?from=Pune&to=Malkapur"><i class="fas fa-train" style="font-size: 0.75rem;"></i> Pune → Malkapur</a>
+            <a href="search.html?from=Mumbai&to=Pune"><i class="fas fa-train" style="font-size: 0.75rem;"></i> Mumbai → Pune</a>
+            <a href="search.html?from=Nagpur&to=Mumbai"><i class="fas fa-train" style="font-size: 0.75rem;"></i> Nagpur → Mumbai</a>
+            <a href="search.html?from=Delhi&to=Mumbai"><i class="fas fa-train" style="font-size: 0.75rem;"></i> Delhi → Mumbai</a>
+            <a href="search.html?from=Pune&to=Nashik"><i class="fas fa-train" style="font-size: 0.75rem;"></i> Pune → Nashik</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Community & Trust</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>All listings are posted directly by registered travelers. Always verify ID before travel.</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>support@ticketsetu.in</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Serving commuters across Indian Railways</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <div>
+          &copy; 2026 TicketSetu. Made for Indian train travelers. Not affiliated with IRCTC or Indian Railways.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="about.html">Safety Tips</a>
+          <a href="about.html#faq">FAQ</a>
+          <a href="about.html#disclaimer">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
